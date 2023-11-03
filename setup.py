@@ -5,10 +5,9 @@ setup(
     version="0.1",
     packages=find_packages(),
     install_requires=[
-        # dependencies:
-        # 'numpy',
-        # 'pandas',
-        # ...
+        'openai',
+        'pandas',
+        'openpyxl'
     ],
     author="Narumi Abe, Bruna Luzzi",
     author_email="mail.narumi@gmail.com",
