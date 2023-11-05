@@ -16,11 +16,13 @@ cnl = Cannoli()
 
 # Ask a question with the quick_question method and store the response in 'ans'
 ans = cnl.quick_question("What's the boiling point of water?")
+```
 
 **Customizing Parameters:**
 
 In this example, the Cannoli class instance is created with a user-provided API key and custom settings, including the choice of engine, custom prompt, token limits, and temperature settings.
 
+```python
 # Instantiate the Cannoli class with a custom API key and setup parameters
 api_key = 'your_api_key_here'
 setup = {
@@ -33,4 +35,4 @@ cnl = Cannoli(api_key=api_key, setup=setup)
 
 # Use the quick_question method to ask a question and store the answer in 'ans'
 ans = cnl.quick_question("What's the boiling point of water?")
-
+```
