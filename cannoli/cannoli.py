@@ -43,9 +43,11 @@ class Cannoli:
         return generated_text
 
 
-    def api_request(self, prompt):
-        self.last_prompt = '' if not self.setup.get('prompt') else self.setup.get('prompt') 
-        self.setup['prompt'] = prompt
+    def api_request(self, prompt=None):
+        if prompt: 
+            self.last_prompt = '' if not self.setup.get('prompt') else self.setup.get('prompt') 
+            self.setup['prompt'] = prompt
+        print(self.setup)
         self.response = openai.Completion.create(**self.setup)
         return self.response
 
