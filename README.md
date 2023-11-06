@@ -2,7 +2,7 @@
 
 #### Install
 
-`!pip install cannoli``
+`!pip install cannoli`
 
 #### Usage Instructions:
 
