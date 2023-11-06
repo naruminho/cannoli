@@ -1,3 +1,4 @@
 cd ..
-python3 setup.py sdist
-python3 -m twine upload dist/*
+python3 -m build
+#python3 setup.py sdist
+python3 -m twine upload dist/* --verbose
