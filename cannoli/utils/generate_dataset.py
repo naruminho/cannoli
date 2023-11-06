@@ -22,7 +22,7 @@ def save_reviews(reviews):
     if not reviews:
         print('Error')
     else:
-        with open('datasets/reviews.dsv', 'w', encoding='utf-8') as freview:
+        with open('cannoli/datasets/reviews.dsv', 'w', encoding='utf-8') as freview:
             freview.write(reviews)
         print("Done.")
 
