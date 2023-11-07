@@ -1,7 +1,7 @@
 cd ..
 git add --all
-git commit -m "updated"
-git push origin dev 
+git commit -m "added MANIFEST.in"
+git push 
 
 
 rm -rf dist
