@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="cannoli",
-    version="0.1.12",
+    version="0.1.14",
     packages=find_packages(),
     include_package_data=True,  # Corrigido aqui
     install_requires=[

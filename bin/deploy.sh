@@ -1,9 +1,10 @@
 cd ..
 git add --all
 git commit -m "updated"
-git push origin --tags
+git push origin dev 
 
-rm -Rf cannoli.egg-info
-rm -Rf dist/*
+
+rm -rf dist
+rm -rf cannoli.egg-info
 python3 -m build
 python3 -m twine upload dist/* --verbose
