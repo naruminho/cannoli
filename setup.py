@@ -2,9 +2,9 @@ from setuptools import setup, find_packages
 
 setup(
     name="cannoli",
-    version="0.1.4",
+    version="0.1.12",
     packages=find_packages(),
-    include_packages_data=True,
+    include_package_data=True,  # Corrigido aqui
     install_requires=[
         'openai',
         'pandas',
