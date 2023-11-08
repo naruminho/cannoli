@@ -1,6 +1,5 @@
+import openai 
 from dataclasses import dataclass, field
-
-import openai
 import os
 import sys
 import json
@@ -9,6 +8,9 @@ from pathlib import Path
 @dataclass
 class Cannoli:
     api_key: str= field(default=None)
+    api_type: str:= field(default=None)
+    api_base: str:= field(default=None)
+    api_version: str:= field(default=None)    
     setup: dict = field(default=None)
     last_prompt: str = field(default='')
     response: dict = field(default=None)
@@ -16,7 +18,12 @@ class Cannoli:
     def __post_init__ (self):
         if not self.setup:
             self.load_default_settings()
-
+        if self.api_type:
+            openai.api_type = self.api_type
+        if self.api_base:
+            openai.api_base = self.api_base
+        if self.api_version:
+            openai.api_version = self.api_version
         if not self.api_key:
             self.get_api_key()
         openai.api_key = self.api_key
