@@ -8,7 +8,10 @@ from pathlib import Path
 
 @dataclass
 class Cannoli:
-    api_key: str= field(default=None)
+    api_key: str = field(default=None)
+    api_type: str = field(default=None)
+    api_base: str = field(default=None)
+    api_version: str = field(default=None)    
     setup: dict = field(default=None)
     last_prompt: str = field(default='')
     response: dict = field(default=None)
@@ -16,7 +19,12 @@ class Cannoli:
     def __post_init__ (self):
         if not self.setup:
             self.load_default_settings()
-
+        if self.api_type:
+            openai.api_type = self.api_type
+        if self.api_base:
+            openai.api_base = self.api_base
+        if self.api_version:
+            openai.api_version = self.api_version
         if not self.api_key:
             self.get_api_key()
         openai.api_key = self.api_key
@@ -32,8 +40,7 @@ class Cannoli:
     def get_api_key(self):
         self.api_key = os.getenv('OPENAI_API_KEY')
         if not self.api_key:
-            print('Error: OPENAI_API_KEY is missing. Please, include it in your initiatlization script.')
-            sys.exit()
+            raise ValueError("'Error: OPENAI_API_KEY is missing. Please, include it in your initiatlization script.'")
 
     def __parse_response(self, response):
         if response.get('error'):

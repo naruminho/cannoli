@@ -1,0 +1,12 @@
+#!/bin/sh
+
+#pytest
+python3 -m pytest -vv
+
+if [ $? -ne 0 ]; then
+  echo "Fix the errors before commit."
+  exit 1
+fi
+
+# no errors
+exit 0
