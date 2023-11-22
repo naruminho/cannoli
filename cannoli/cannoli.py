@@ -4,6 +4,7 @@ import openai
 import os
 import sys
 import json
+import glob 
 from pathlib import Path
 
 @dataclass
@@ -31,7 +32,14 @@ class Cannoli:
 
     def load_default_settings(self):
         try:
-            setup_filename = Path(__file__).resolve().parent / 'default_settings.json'
+            # tenta abrir o arquivo no caminho do codigo
+            setup_filename = glob.glob(os.path.join('.', 'default_settings.json'))
+            # senao, tenta abrir um arquivo padrao
+            if not setup_filename:
+                setup_filename = Path(__file__).resolve().parent / 'default_settings.json'
+            else:
+                setup_filename = setup_filename[0]
+            
             with open(setup_filename, 'r', encoding='utf-8') as settings_file:
                 self.setup = json.load(settings_file)
         except Exception:
