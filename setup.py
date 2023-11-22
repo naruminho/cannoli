@@ -4,7 +4,7 @@ setup(
     name="cannoli",
     version="0.1.24",
     packages=find_packages(),
-    include_packages_data=True,
+    include_package_data=True,  # Corrigido aqui
     install_requires=[
         'openai==0.28.1',
         'pandas',

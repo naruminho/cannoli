@@ -1,6 +1,5 @@
+import openai 
 from dataclasses import dataclass, field
-
-import openai
 import os
 import sys
 import json
