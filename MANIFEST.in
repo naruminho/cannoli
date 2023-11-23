@@ -1,5 +1,4 @@
 include cannoli/default_settings.json
-recursive-include cannoli/utils *.py
-recursive-include cannoli/datasets *.csv
-recursive-include cannoli/datasets *.tsv
+include cannoli/utils/generate_test_dataset.py
 recursive-include cannoli/datasets *.dsv
+
